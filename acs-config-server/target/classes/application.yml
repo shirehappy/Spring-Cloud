@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: config-server
+  profiles:
+    active:
+      - native
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/shirehappy/SpringCloudConfig
+          searchPaths: 
+            
+server:
+  port: 8888
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+      

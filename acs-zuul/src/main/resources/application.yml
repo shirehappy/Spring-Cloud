@@ -1,0 +1,26 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: acs-zuul
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+zuul:
+  routes:
+    acs-eureka-invoker:
+      path: /**
+      service-id: acs-eureka-invoker
+
+ribbon:
+  eureka:
+    enabled: false
+
+acs-eureka-invoker:
+  ribbon:
+    listOfServers: http://localhost:8086/
+      
